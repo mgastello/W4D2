@@ -16,16 +16,17 @@ class Board
 
     def [](pos)
         x, y = pos
-        @grid[x][y]
+        @grid[x][y].pos
     end
 
-    def []=(pos, end_pos)
-        x, y = pos
+    def []=(start_pos, end_pos)
+        x, y = start_pos
         @grid[x][y].pos = end_pos
     end
 
     def move_piece(start_pos, end_pos)
-        
+        raise "invalid starting or ending position" if grid[start_pos].nil? || !valid_pos.include?(end_pos)
+        @grid[start_pos] = end_pos
     end
 end
 
