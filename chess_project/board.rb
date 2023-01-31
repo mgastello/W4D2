@@ -7,5 +7,9 @@ class Board
         #     end
         # end
     end
+
+    def move_piece(start_pos, end_pos)
+        
+    end
 end
 
