@@ -1,7 +1,11 @@
 require 'board.rb'
 
+module Slidable
+
+end
+
 class Piece
-    def intitialize(color, board, pos)
+    def initialize(color, board, pos)
         @color = color
         @board = board
         @pos = pos
@@ -18,7 +22,9 @@ class Stepping_Pieces < Piece
 end
 
 class Null_Pieces < Piece
+
 end
 
 class Pawns < Piece
+
 end
