@@ -1,8 +1,5 @@
 require_relative 'board.rb'
 
-module Slidable
-
-end
 
 class Piece
     
@@ -16,18 +13,3 @@ class Piece
     
 end
 
-class Sliding_Pieces < Piece
-
-end
-
-class Stepping_Pieces < Piece
-
-end
-
-class Null_Pieces < Piece
-
-end
-
-class Pawns < Piece
-
-end

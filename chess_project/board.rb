@@ -1,8 +1,9 @@
 require_relative 'piece.rb'
+require_relative 'null_piece.rb'
 
 class Board
     def initialize
-        @grid = Array.new(8) { Array.new(8) }   # insert null piece
+        @grid = Array.new(8) { Array.new(8) { NullPiece.instance } }   # insert null piece
         (0..7).to_a.each do |idx1|
             (0..7).to_a.each do |idx2|
                 if idx1 < 2
