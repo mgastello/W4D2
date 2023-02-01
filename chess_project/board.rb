@@ -1,8 +1,11 @@
 require_relative 'piece.rb'
 require_relative 'null_piece.rb'
+require_relative 'slidable.rb'
 require "byebug"
 
 class Board
+    include Slidable
+
     def initialize
         @grid = Array.new(8) { Array.new(8)}   # insert null piece
         (0..7).to_a.each do |idx1|
@@ -18,21 +21,21 @@ class Board
 
     def [](start_pos)
         x, y = start_pos
-        self[x][y]
+        @grid[x][y]
     end
 
-    def []=(start_pos, end_pos)
-        # x, y = start_pos
-        # a, b = end_pos
-        self[end_pos] = self[start_pos]
+    def []=(start_pos, value)
+        x, y = start_pos
+        @grid[x][y] = value
     end
 
     def move_piece(start_pos, end_pos)
-        if self[start_pos].nil? 
-            if self[end_pos].nil? || self[start_pos].color != self[end_pos].color
-                raise "invalid starting or ending position"
-            end
-        end
+        raise "invalid starting or ending position" if self[start_pos].nil? || !self[end_pos].nil?
+        # if !self[start_pos].nil? 
+        #     if self[end_pos].nil? && self[start_pos].color != self[end_pos].color
+        #         raise "invalid starting or ending position"
+        #     end
+        # end
         # debugger
         self[start_pos].pos = end_pos
         # self[start_pos] = end_pos
