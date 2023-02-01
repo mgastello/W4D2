@@ -17,21 +17,29 @@ class Board
     end
 
     def [](start_pos)
-        debugger
+        
         x, y = start_pos
-        @grid[x][y].pos
+        piece = @grid[x][y]
+        piece
     end
 
     def []=(start_pos, end_pos)
         x, y = start_pos
         a, b = end_pos
-        @grid[x][y] = @grid[a][b]
+        self[start_pos] = self[end_pos]
     end
 
     def move_piece(start_pos, end_pos)
-        raise "invalid starting or ending position" if @grid[start_pos].nil? || @grid[end_pos].color != @grid[start_pos].color
-        @grid[start_pos].pos = end_pos
-        @grid[start_pos] = end_pos
+        if self[start_pos].nil? 
+            if self[end_pos].nil? || self[start_pos].color != self[end_pos].color
+                raise "invalid starting or ending position"
+            end
+        end
+        debugger
+        self[start_pos].pos = end_pos
+        # self[start_pos] = end_pos
+        self[end_pos] = self[start_pos]
+        self[start_pos] = nil
 
 
     end
