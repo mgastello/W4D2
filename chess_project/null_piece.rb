@@ -1,8 +1,14 @@
-require_relative 'piece.rb'
+# require_relative 'piece.rb'
 
-class NullPiece < Piece
-    include Singleton
-    def initialize
-        @color = 'null piece'
-    end
-end
+# class NullPiece < Piece
+#     def initialize
+#         super(nil, nil, nil)
+#         @color = 'null piece'
+#     end
+
+#     def self.instance
+#         @instance ||= new
+#     end
+
+#     private_class_method :new
+# end
